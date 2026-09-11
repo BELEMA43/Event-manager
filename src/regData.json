@@ -1,0 +1,62 @@
+[
+  {
+    "id": "January",
+    "registrations": 614,
+    "name": "Jan"
+  },
+  {
+    "id": "February",
+    "registrations": 333,
+    "name": "Feb"
+  },
+  {
+    "id": "March",
+    "registrations": 733,
+    "name": "Mar"
+  },
+  {
+    "id": "April",
+    "registrations": 771,
+    "name": "Apl"
+  },
+  {
+    "id": "May",
+    "registrations": 415,
+    "name": "May"
+  },
+  {
+    "id": "June",
+    "registrations": 842,
+    "name": "Jun"
+  },
+  {
+    "id": "July",
+    "registrations": 758,
+    "name": "Jul"
+  },
+  {
+    "id": "August",
+    "registrations": 766,
+    "name": "Aug"
+  },
+  {
+    "id": "September",
+    "registrations": 51,
+    "name": "Sep"
+  },
+  {
+    "id": "October",
+    "registrations": 424,
+    "name": "Oct"
+  },
+  {
+    "id": "November",
+    "registrations": 772,
+    "name": "Nov"
+  },
+  {
+    "id": "December",
+    "registrations": 592,
+    "name": "Dec"
+  }
+]

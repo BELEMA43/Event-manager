@@ -1,7 +1,13 @@
 import { CircleAlert } from "lucide-react";
 import data from "../data.json";
+import RegData from "../regData.json";
 
 export default function Summary() {
+  const RegTotal = RegData.reduce((accumulator, currentObject) => {
+    return accumulator + currentObject.registrations;
+  }, 0);
+
+  const RegFunds = Number(RegTotal * 50);
   const summaryDetails = [
     {
       title: "Total Events",
@@ -13,11 +19,11 @@ export default function Summary() {
     },
     {
       title: "Total Registrations",
-      value: data.length,
+      value: RegTotal,
     },
     {
       title: "Total Revenue",
-      value: `$${data.length}`,
+      value: `$${RegFunds}`,
     },
   ];
   return (

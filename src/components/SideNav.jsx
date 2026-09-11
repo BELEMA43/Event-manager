@@ -9,90 +9,123 @@ import {
   ChevronsLeft,
   ChevronsRight,
   TextAlignEnd,
+  X,
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
+import { useState } from "react";
 import companyLogo from "../assets/Company logo.png";
 import logo from "../assets/Logomark.png";
 
 export default function SideNavigation({ isOpen, setIsOpen }) {
+  const [toogle, setToogle] = useState(false);
+
   const side_details = [
     {
       name: "Home",
       icon: <House color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <House color="#000" />,
+      icon_main: <House color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
     {
       name: "Events",
       icon: <CalendarDays color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <CalendarDays color="#000" />,
+      icon_main: <CalendarDays color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/events",
     },
     {
       name: "Speakers",
       icon: <UserStar color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <UserStar color="#000" />,
+      icon_main: <UserStar color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
     {
       name: "Reports",
       icon: <SquareText color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <SquareText color="#000" />,
+      icon_main: <SquareText color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
     {
       name: "Notifications",
       icon: <Bell color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <Bell color="#000" />,
+      icon_main: <Bell color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
     {
       name: "Messages",
       icon: <MessageCircle color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <MessageCircle color="#000" />,
+      icon_main: <MessageCircle color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
     {
       name: "Settings",
       icon: <Settings color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <Settings color="#000" />,
+      icon_main: <Settings color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
     {
       name: "Collapse",
       icon: <ChevronsLeft color="#ADA9BB" strokeWidth={1.75} size={20} />,
-      icon_main: <ChevronsRight color="#000" strokeWidth={1.25} />,
+      icon_main: <ChevronsRight color="#64748B" strokeWidth={1.6} size={20} />,
+      link: "/",
     },
   ];
   return (
     <div
-      className={` w-full h-auto border border-gray-100 sticky sm:p-2 gap-2 flex flex-col ${isOpen ? "sm:max-w-60" : "sm:max-w-16"}`}
+      className={` w-full h-auto border border-gray-100 sticky sm:p-2 gap-2 flex flex-col transition-all duration-300 ease-in-out ${isOpen ? "sm:max-w-60" : "sm:max-w-16"}`}
     >
-      <div className="hidden sm:flex mb-3 mt-1.5">
+      <Link to={"/"} className="hidden sm:flex sm:gap-3 pl-3 mb-3 mt-1.5">
         <img
           src={companyLogo}
           alt="Constellation Logo"
-          className={`${isOpen ? "flex" : "hidden"}`}
+          className={`${isOpen ? "flex" : "hidden"} `}
         />
         <img
           src={logo}
           alt="Constellation Logo"
-          className={`${isOpen ? "hidden" : "flex"}`}
+          className={`${isOpen ? "hidden" : "flex"} `}
         />
-      </div>
+      </Link>
 
       <div className="flex p-4 justify-between sm:hidden">
-        <div className="">
+        <Link className="" to={"/"}>
           <img
             src={companyLogo}
             alt="Constellation Logo"
             className="w-full h-full image-render-pixelated"
           />
-        </div>
+        </Link>
         <TextAlignEnd
           color="#64748B"
           size={30}
           hoverColor="#9486FF"
           cursor="pointer"
+          className={toogle ? `hidden` : `block`}
+          onClick={() => {
+            setToogle(!toogle);
+            setIsOpen(isOpen === true);
+          }}
+        />
+
+        <X
+          color="#64748B"
+          size={30}
+          hoverColor="#9486FF"
+          cursor="pointer"
+          className={toogle ? `block` : `hidden`}
+          onClick={() => setToogle(!toogle)}
         />
       </div>
 
-      <div className="hidden md:block">
+      <nav
+        className={toogle ? `flex flex-col` : `hidden md:block`}
+        onClick={() => {
+          setIsOpen(!isOpen);
+        }}
+      >
         {side_details.map((detail) => (
-          <div
+          <Link
+            to={detail.link}
             className={`group p-2 gap-4 items-center ${isOpen ? "flex" : "hidden"} hover:bg-[#FCF7FF] cursor-pointer`}
             key={detail.name}
           >
@@ -100,7 +133,7 @@ export default function SideNavigation({ isOpen, setIsOpen }) {
             <div className="text-[#334155] group-hover:text-[#6152d6] text-[15px] font-inter">
               {detail.name}
             </div>
-          </div>
+          </Link>
         ))}
         {side_details.map((detail) => (
           <div
@@ -110,7 +143,7 @@ export default function SideNavigation({ isOpen, setIsOpen }) {
             <div>{detail.icon_main}</div>
           </div>
         ))}
-      </div>
+      </nav>
     </div>
   );
 }
