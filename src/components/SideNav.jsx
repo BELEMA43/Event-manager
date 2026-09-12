@@ -8,18 +8,15 @@ import {
   SquareText,
   ChevronsLeft,
   ChevronsRight,
-  TextAlignEnd,
-  X,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
-import { useState } from "react";
+
 import companyLogo from "../assets/Company logo.png";
 import logo from "../assets/Logomark.png";
+import SheetDemo from "./SideSheet";
 
 export default function SideNavigation({ isOpen, setIsOpen }) {
-  const [toogle, setToogle] = useState(false);
-
   const side_details = [
     {
       name: "Home",
@@ -95,30 +92,12 @@ export default function SideNavigation({ isOpen, setIsOpen }) {
             className="w-full h-full image-render-pixelated"
           />
         </Link>
-        <TextAlignEnd
-          color="#64748B"
-          size={30}
-          hoverColor="#9486FF"
-          cursor="pointer"
-          className={toogle ? `hidden` : `block`}
-          onClick={() => {
-            setToogle(!toogle);
-            setIsOpen(isOpen === true);
-          }}
-        />
 
-        <X
-          color="#64748B"
-          size={30}
-          hoverColor="#9486FF"
-          cursor="pointer"
-          className={toogle ? `block` : `hidden`}
-          onClick={() => setToogle(!toogle)}
-        />
+        <SheetDemo />
       </div>
 
       <nav
-        className={toogle ? `flex flex-col` : `hidden md:block`}
+        className={`hidden md:block`}
         onClick={() => {
           setIsOpen(!isOpen);
         }}

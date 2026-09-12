@@ -7,7 +7,7 @@ export default function Summary() {
     return accumulator + currentObject.registrations;
   }, 0);
 
-  const RegFunds = Number(RegTotal * 50);
+  const RegFunds = (RegTotal * 50).toLocaleString();
   const summaryDetails = [
     {
       title: "Total Events",
@@ -19,7 +19,7 @@ export default function Summary() {
     },
     {
       title: "Total Registrations",
-      value: RegTotal,
+      value: RegTotal.toLocaleString(),
     },
     {
       title: "Total Revenue",
