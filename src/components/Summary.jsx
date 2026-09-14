@@ -7,15 +7,17 @@ export default function Summary() {
     return accumulator + currentObject.registrations;
   }, 0);
 
+  const eData = data;
+
   const RegFunds = (RegTotal * 50).toLocaleString();
   const summaryDetails = [
     {
       title: "Total Events",
-      value: data.length,
+      value: eData.length,
     },
     {
       title: "Active Speakers",
-      value: data.length,
+      value: eData.length,
     },
     {
       title: "Total Registrations",

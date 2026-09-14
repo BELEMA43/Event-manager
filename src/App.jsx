@@ -9,7 +9,7 @@ import { Route, Routes } from "react-router-dom";
 export default function App() {
   const [isOpen, setIsOpen] = useState(true);
   return (
-    <div className="flex flex-col sm:flex-row gap-1 h-screen">
+    <div className="flex flex-col sm:flex-row gap-1 min-h-screen h-full">
       <SideNavigation isOpen={isOpen} setIsOpen={setIsOpen} />
       <Routes>
         <Route path="/" element={<Home />} />

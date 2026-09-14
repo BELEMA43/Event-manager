@@ -19,6 +19,7 @@
     "embla-carousel-react": "^8.6.0",
     "lucide-react": "^1.43.0",
     "react": "^19.2.8",
+    "react-data-table-component": "^8.10.0",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18.3",
     "recharts": "^3.10.1",
